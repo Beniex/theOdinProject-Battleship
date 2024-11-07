@@ -69,6 +69,18 @@ describe('Gameboard class', () => {
           GameboardTest2.place(ship2,2,1, false);
           expect(GameboardTest2.board[2][4].state).toBe("ship");
       });
+        test('place fonction should return a truthy if a ship is placed"', () => {
+          const GameboardTest2 = new Gameboard(8); 
+          let ship2 = new Ship(4); 
+          expect(GameboardTest2.place(ship2,2,1, false)).toBe(true);
+      });
+      test('place fonction should return a falsy if a ship is placed where a ship is already present"', () => {
+        const GameboardTest2 = new Gameboard(8); 
+        let ship2 = new Ship(4); 
+        GameboardTest2.place(ship2,2,1, false);
+        let ship1 = new Ship(1); 
+        expect(GameboardTest2.place(ship1,2,1, false)).toBe(false);
+    });
     });
 
     describe('Gameboard class receiveAttack function', () => {

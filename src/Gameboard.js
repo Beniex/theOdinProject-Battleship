@@ -32,6 +32,21 @@ class Gameboard{
             }
         } 
         this.shipsList.push(ship); 
+        return true; 
+    }
+
+    isFree(ship, x, y, horizontal){
+        if(horizontal == true){
+            for( let i = x; i<x+ship.length; i++){
+             if (this.board[i][y].state !== "empty"){
+                return 
+             }
+            }  
+        } else {
+            for (let j = y; j<y+ship.length; j++){
+                this.board[x][j].state = "ship";
+            }
+        } 
     }
 
     receiveAttack(x, y){

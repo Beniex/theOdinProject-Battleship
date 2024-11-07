@@ -4,7 +4,7 @@ html, body{
     margin: 0;
     background-color: #e76f51;
 }
-
+/*
 body{
     width: 95%;
     height: 90%;
@@ -15,7 +15,7 @@ body{
     padding: 30px;
     gap: 30px;
 }
-
+*/
 
 body>div{
     border-radius: 20px;
@@ -23,3 +23,83 @@ body>div{
     font-size: medium;
     font-weight: 700;
   }
+
+.container {
+    text-align: center;
+    height: 100vh;
+    margin: 0;
+    background-color: rgb(91, 172, 248);
+    display: flex;
+    flex-direction: column;
+}
+
+.container>div{
+    height: 120px;
+    width: 1OO;
+    background-color: blueviolet;
+    border: solid orangered 5px;
+}
+
+
+#header, #bottom {
+    height: 10%;
+    background-color: green;
+    border: solid black 5px;
+}
+
+#containerGB {
+    flex-grow: 4; 
+    background-color: greenyellow;
+    border: solid orange 5px;
+    display: flex;
+    align-content: center; 
+    justify-content: space-evenly; 
+    padding: 2%; 
+    box-sizing: border-box;
+}
+
+.Gameboard{
+    background-color: beige;
+    border: 3px solid black;
+    width: 67vh;
+    height: 67vh;
+    margin-bottom: 5%;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Distribue l'espace de manière égale entre les lignes */
+    align-items: center;
+
+    /*gap: 10px; 
+    margin-bottom: 20px; 
+    justify-content: center;*/
+}
+
+
+.Gameboard .row{
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-between; 
+    align-items: stretch; 
+    width: 100%;
+}
+
+
+.Gameboard .row .box{
+    background-color: skyblue;
+    flex-grow: 1;
+    border : solid black 2px; 
+}
+
+#bottom{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.button{
+    background-color: white;
+    border-radius: 8px;
+    width: 230px;
+    height: 30px; 
+}
