@@ -20,33 +20,46 @@ class Gameboard{
     }
 
     place(ship, x, y, horizontal){
-        if(horizontal == true){
-            for( let i = x; i<x+ship.length; i++){
-             this.board[i][y].boat=ship; 
-             this.board[i][y].state = "ship";
-            }  
+        if(this.isPlaceFree(ship, x, y, horizontal)){
+            if(horizontal == true){
+                for( let i = x; i<x+ship.length; i++){
+                this.board[i][y].boat=ship; 
+                this.board[i][y].state = "ship";
+                }  
+            } else {
+                for (let j = y; j<y+ship.length; j++){
+                    this.board[x][j].boat = ship; 
+                    this.board[x][j].state = "ship";
+                }
+            } 
+            this.shipsList.push(ship); 
+            return true;
         } else {
-            for (let j = y; j<y+ship.length; j++){
-                this.board[x][j].boat = ship; 
-                this.board[x][j].state = "ship";
-            }
-        } 
-        this.shipsList.push(ship); 
-        return true; 
+            return false;
+        }
     }
 
-    isFree(ship, x, y, horizontal){
+    isPlaceFree(ship, x, y, horizontal){
         if(horizontal == true){
             for( let i = x; i<x+ship.length; i++){
+             if (i<0 || i>9){
+                return false; 
+             }
              if (this.board[i][y].state !== "empty"){
-                return 
+                return false; 
              }
             }  
         } else {
             for (let j = y; j<y+ship.length; j++){
-                this.board[x][j].state = "ship";
+                if (j<0 || j>9){
+                    return false; 
+                }
+                if (this.board[x][j].state !== "empty"){
+                    return false; 
+                }
             }
         } 
+        return true; 
     }
 
     receiveAttack(x, y){

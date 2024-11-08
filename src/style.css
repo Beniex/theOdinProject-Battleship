@@ -86,7 +86,7 @@ body>div{
 
 
 .Gameboard .row .box{
-    background-color: skyblue;
+    background-color: violet;
     flex-grow: 1;
     border : solid black 2px; 
 }
